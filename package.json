@@ -31,6 +31,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-vue": "^9.6.0",
+    "git-cz": "^4.9.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "mrm": "^4.1.13",
@@ -56,5 +57,10 @@
     "*.{vue,ts,js}": "npm run lint",
     "*.{html,vue,ts,js,json,md,scss}": "npm run prettier",
     "*.{css,less,vue,html}": "npm run lint:style"
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   }
 }
