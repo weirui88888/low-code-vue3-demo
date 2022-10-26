@@ -45,3 +45,5 @@
 该章节主要用来记录在重构的过程中接触到的一些新鲜的技巧点，供开发者学习
 
 - [如何基于已有的仓库，创建一个全新的分支](https://www.jianshu.com/p/a18487d987ac)
+
+- [vue3 项目如何进行 eslint、prettier、stylelint 配置](https://juejin.cn/post/7118294114734440455)
