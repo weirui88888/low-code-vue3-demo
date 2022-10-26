@@ -40,6 +40,10 @@
 
 该章节主要用来一句话阐述做了重构过程中的哪些工作，便于后期回顾
 
+1.添加工程化配置
+
+eslint、stylelint、prettier、commitlint、husky、lint-staged、postcss...
+
 ## 技巧
 
 该章节主要用来记录在重构的过程中接触到的一些新鲜的技巧点，供开发者学习
