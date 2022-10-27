@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+console.log(import.meta.env)
 const click = () => {
   alert('hello')
 }
