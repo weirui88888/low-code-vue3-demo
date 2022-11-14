@@ -102,7 +102,7 @@ jobs:
           export sourceUrl='^(/(?:(?!\\w+/v\\d+(?:\\.\\d*)*/).*))'
           export functionsValue=$(printf '[{"functionName":"back_to_origin_url_rewrite","functionArgs":[{"argName":"source_url","argValue":"%s"},{"argName":"target_url","argValue":"/%s/%s$1"}],"configId":%s}]' $sourceUrl $BRANCH $VERSION $configId)
           export normalizedFunctions=$(echo $functionsValue | jq --raw-input)
-          export actionParameters=$(printf '{ "DomainNames": "vip.bybutter.com", "Functions": %s }' $normalizedFunctions)
+          export actionParameters=$(printf '{ "DomainNames": "vue3.newarray.vip", "Functions": %s }' $normalizedFunctions)
           echo ::set-output name=parameters::$(echo $actionParameters)
         env:
           RESULT: ${{ steps.getCdnDomainConfigs.outputs.result }}
