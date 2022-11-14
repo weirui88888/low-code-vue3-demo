@@ -1,0 +1,129 @@
+name: Publish
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  release:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Download Assets
+        id: downloadAssets
+        uses: ButterCam/download-asset-action@main
+        with:
+          repository: ${{github.repository}}
+          tag: ${{github.event.release.tag_name}}
+          asset: vue3-demo
+          token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Clear Build
+        run: rm -rf dist
+
+      - name: Clear Offline
+        run: rm -rf offline
+
+      - name: UnPackage
+        run: tar -xzf ${{steps.downloadAssets.outputs.name}}
+
+      - name: Get Version
+        id: getVersion
+        run: echo "release_version=$(echo $TAG | sed -rn 's/'$BRANCH'-(v.+)/\1/p')" >> $GITHUB_OUTPUT
+        env:
+          TAG: ${{github.event.release.tag_name}} # event_2022_11_11-v1.9.4
+          BRANCH: ${{github.event.release.target_commitish}} # event_2022_11_11
+
+      - name: Create Offline Scope
+        id: getLatestVersion
+        run: |
+          export offline_version=$(date +%s)
+          export scopeTemplate='{"cacheStrategy":{"type":"agile"},"latestVersion":%s,"latestVersionDownloadUrl":"https://vue3.newarray.vip/%s/%s/offline.zip"}'
+          export scope=$(printf "$scopeTemplate" "$offline_version" "$BRANCH" "$VERSION")
+          echo "latestVersion=$offline_version" >> $GITHUB_OUTPUT
+          echo $scope > scope.json
+        env:
+          BRANCH: ${{github.event.release.target_commitish}}
+          VERSION: ${{steps.getVersion.outputs.release_version}}
+
+      - name: Prepare Offline Package
+        run: |
+          ls -al
+          cp -r dist offline
+
+      - name: Create Offline Package
+        uses: vimtor/action-zip@v1
+        with:
+          files: ./offline
+          dest: offline.zip
+
+      - name: Prepare Files
+        run: |
+          rm -rf root
+          mkdir root
+          mv dist/404.html root
+
+      - name: Setup OSS Util
+        uses: manyuanrong/setup-ossutil@v2.0
+        with:
+          endpoint: oss-cn-beijing.aliyuncs.com
+          access-key-id: LTAI5t95jTdcTbURZur5xnjf
+          access-key-secret: wNeh7wUrZkFFQ1ICIyEMXQ2gOdkgip
+
+      - name: Upload Files to OSS
+        run: |
+          ossutil rm oss://action-vue3-demo/$BRANCH/$VERSION/ --include "*" -r -f
+          ossutil cp dist/ oss://action-vue3-demo/$BRANCH/$VERSION/ -r -f
+          ossutil cp offline.zip oss://action-vue3-demo/$BRANCH/$VERSION/ -r -f
+          ossutil cp root/404.html oss://action-vue3-demo/ -r -f
+          ossutil cp --meta Content-Type:application/json scope.json oss://action-vue3-demo/ -r -f
+        env:
+          BRANCH: ${{github.event.release.target_commitish}}
+          VERSION: ${{steps.getVersion.outputs.release_version}}
+
+      - name: Get Cdn Domain Configs
+        uses: iou90/aliCdn@v1.0.0
+        id: getCdnDomainConfigs
+        with:
+          accessKeyId: LTAI5t95jTdcTbURZur5xnjf
+          appSecret: wNeh7wUrZkFFQ1ICIyEMXQ2gOdkgip
+          action: DescribeCdnDomainConfigs
+          parameters: '{ "DomainName": "vue3.newarray.vip", "FunctionNames": "back_to_origin_url_rewrite" }'
+
+      - name: Set Cdn Action Parameters
+        id: setCdnAction
+        run: |
+          export configId=$(echo $RESULT | jq '.DomainConfigs.DomainConfig[0].ConfigId')
+          export sourceUrl='^(/(?:(?!\\w+/v\\d+(?:\\.\\d*)*/).*))'
+          export functionsValue=$(printf '[{"functionName":"back_to_origin_url_rewrite","functionArgs":[{"argName":"source_url","argValue":"%s"},{"argName":"target_url","argValue":"/%s/%s$1"}],"configId":%s}]' $sourceUrl $BRANCH $VERSION $configId)
+          export normalizedFunctions=$(echo $functionsValue | jq --raw-input)
+          export actionParameters=$(printf '{ "DomainNames": "vip.bybutter.com", "Functions": %s }' $normalizedFunctions)
+          echo ::set-output name=parameters::$(echo $actionParameters)
+        env:
+          RESULT: ${{ steps.getCdnDomainConfigs.outputs.result }}
+          BRANCH: ${{github.event.release.target_commitish}}
+          VERSION: ${{steps.getVersion.outputs.release_version}}
+
+      - name: Rewrite Cdn back_to_origin_url
+        uses: iou90/aliCdn@v1.0.0
+        with:
+          accessKeyId: LTAI5t95jTdcTbURZur5xnjf
+          appSecret: wNeh7wUrZkFFQ1ICIyEMXQ2gOdkgip
+          action: BatchSetCdnDomainConfig
+          parameters: ${{ steps.setCdnAction.outputs.parameters }}
+
+      - name: Wait For Rewriting
+        run: sleep 50
+
+      - name: Refresh Cdn cache
+        uses: iou90/aliCdn@v1.0.0
+        with:
+          accessKeyId: LTAI5t95jTdcTbURZur5xnjf
+          appSecret: wNeh7wUrZkFFQ1ICIyEMXQ2gOdkgip
+          action: RefreshObjectCaches
+          parameters: '{ "ObjectPath": "https://vue3.newarray.vip/", "ObjectType": "Directory" }'
