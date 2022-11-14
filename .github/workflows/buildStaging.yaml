@@ -1,6 +1,8 @@
 name: Build Staging
 
-on: [push]
+on:
+  push:
+    branches: ['**']
 
 jobs:
   build:
