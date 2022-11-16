@@ -9,6 +9,11 @@ jobs:
     name: Build Manual Event
     runs-on: ubuntu-latest
     steps:
+      - name: View event-key
+        run: |
+          echo ${{github.event.client_payload.event-key}}
+          echo ${{github.ref_name}}
+
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.11.0
         with:
