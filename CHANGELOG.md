@@ -1,3 +1,9 @@
+## [0.1.0]
+
+### Feature
+
+- :feat: 配置 buildEvent 和 buildManual，使其可以生成活动分支草稿
+
 ## [0.0.9]
 
 ### Feature
