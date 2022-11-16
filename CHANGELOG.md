@@ -1,3 +1,9 @@
+## [0.0.9]
+
+### Feature
+
+- :feat: 添加 buildManual 和 buildStagingManual，是用来后台手动触发的 action
+
 ## [0.0.8]
 
 ### Feature

@@ -1,13 +1,8 @@
-name: Build Staging
-
-on:
-  push:
-    branches:
-      - '!event-**'
+name: Build Staging Manual
 
 jobs:
   build:
-    name: Build Staging
+    name: Build Staging Manual
     runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Runs
