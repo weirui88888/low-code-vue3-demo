@@ -2,7 +2,7 @@ name: Build Manual Event
 
 on:
   repository_dispatch:
-    types: [start-build-manual]
+    types: ["start-build-manual"]
 
 jobs:
   build:
