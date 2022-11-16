@@ -2,9 +2,8 @@ name: Build Staging
 
 on:
   push:
-    branches:
-      - ['**']
-      - '!event-**'
+    branches-ignore:
+      - 'event-**'
 
 jobs:
   build:
