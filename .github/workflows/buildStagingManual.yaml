@@ -1,5 +1,10 @@
 name: Build Staging Manual
 
+on:
+  push:
+    branches:
+      - event-staging-manual-placeholder
+
 jobs:
   build:
     name: Build Staging Manual
