@@ -1,9 +1,5 @@
 name: Build Staging Manual
 
-on:
-  repository_dispatch:
-    types: [start-build-staging-manual]
-
 jobs:
   build:
     name: Build Staging Manual
