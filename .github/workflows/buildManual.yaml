@@ -6,59 +6,6 @@ on:
       - event-manual-placeholder
 
 jobs:
-  buildManualEvent:
-    name: Build Manual Event
-    runs-on: ubuntu-latest
-    steps:
-      - name: Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
-        with:
-          access_token: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Fetch Sources
-        uses: actions/checkout@v3
-        with:
-          clean: true
-
-      - name: Setup Node 16
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-
-      - name: Install Dependencies & Build Production
-        run: |
-          npm install
-          npm run build
-
-      - name: Version
-        id: versionGenerator
-        run: |
-          echo "BUILD_VERSION=$(date "+%y%m%d").$GITHUB_RUN_NUMBER"
-          echo "BUILD_VERSION=$(date "+%y%m%d").$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
-          echo "version=$(date "+%y%m%d").$GITHUB_RUN_NUMBER" >> $GITHUB_OUTPUT
-
-      - name: Package
-        run: |
-          find dist -name "*.map" -exec rm -rf {} \;
-          tar -czf vue3-demo-${BUILD_VERSION}.tar.gz ./dist
-
-      - name: Parse Changelog
-        id: changelog
-        uses: coditory/changelog-parser@v1
-
-      - name: Create Release Draft
-        run: |
-          gh release create ${{github.ref_name}}-v${{steps.changelog.outputs.version}} vue3-demo-*.tar.gz \
-            --target ${{github.ref_name}} \
-            --draft \
-            --title "${{github.ref_name}}-v${{steps.changelog.outputs.version}}" \
-            --notes "$(cat << 'EOM' 
-          ${{ steps.changelog.outputs.description }} 
-          EOM
-          )"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   buildStagingManualEvent:
     name: Build Staging Manual
     runs-on: ubuntu-latest
@@ -118,3 +65,56 @@ jobs:
           ossutil cp dist/ oss://test-action-vue3-demo/${GITHUB_REF##*/}/ -r -f
           ossutil cp offline.zip oss://test-action-vue3-demo/${GITHUB_REF##*/}/ -r -f
           ossutil cp --meta Content-Type:application/json scope-dev.json oss://action-vue3-demo/ -r -f
+  buildManualEvent:
+    name: Build Manual Event
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@0.11.0
+        with:
+          access_token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Fetch Sources
+        uses: actions/checkout@v3
+        with:
+          clean: true
+
+      - name: Setup Node 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install Dependencies & Build Production
+        run: |
+          npm install
+          npm run build
+
+      - name: Version
+        id: versionGenerator
+        run: |
+          echo "BUILD_VERSION=$(date "+%y%m%d").$GITHUB_RUN_NUMBER"
+          echo "BUILD_VERSION=$(date "+%y%m%d").$GITHUB_RUN_NUMBER" >> $GITHUB_ENV
+          echo "version=$(date "+%y%m%d").$GITHUB_RUN_NUMBER" >> $GITHUB_OUTPUT
+
+      - name: Package
+        run: |
+          find dist -name "*.map" -exec rm -rf {} \;
+          tar -czf vue3-demo-${BUILD_VERSION}.tar.gz ./dist
+
+      - name: Parse Changelog
+        id: changelog
+        uses: coditory/changelog-parser@v1
+
+      - name: Create Release Draft
+        run: |
+          gh release create ${{github.ref_name}}-v${{steps.changelog.outputs.version}} vue3-demo-*.tar.gz \
+            --target ${{github.ref_name}} \
+            --draft \
+            --title "${{github.ref_name}}-v${{steps.changelog.outputs.version}}" \
+            --notes "$(cat << 'EOM' 
+          ${{ steps.changelog.outputs.description }} 
+          EOM
+          )"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
