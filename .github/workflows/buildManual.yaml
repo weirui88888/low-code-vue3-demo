@@ -3,9 +3,7 @@ name: Build Manual Event
 on:
   push:
     branches:
-      - event-*
-    paths-ignore:
-      - 'src/appConfig/**'
+      - event-manual-placeholder
 
 jobs:
   buildStagingManualEvent:
