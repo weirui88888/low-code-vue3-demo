@@ -3,7 +3,9 @@ name: Build Manual Event
 on:
   push:
     branches:
-      - event-manual-placeholder
+      - event-*
+    paths:
+      - '!src/app.config.json'
 
 jobs:
   buildStagingManualEvent:
