@@ -1,3 +1,9 @@
+## [0.1.1]
+
+### Feature
+
+- :feat: 合并 buildStagingManual 和 buildManual
+
 ## [0.1.0]
 
 ### Feature
@@ -8,7 +14,7 @@
 
 ### Feature
 
-- :feat: 添加 buildManual 和 buildStagingManual，是用来后台手动触发的 action
+- :feat: 添加 buildManual 和 buildStagingManual，是用来后台手动触发的，是用来后台手动触发的 action
 
 ## [0.0.8]
 
