@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - event-*
-    paths:
-      - '!src/appConfig/**'
+    paths-ignore:
+      - 'src/appConfig/**'
 
 jobs:
   buildStagingManualEvent:
