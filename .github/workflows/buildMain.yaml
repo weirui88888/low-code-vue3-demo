@@ -49,11 +49,11 @@ jobs:
 
       - name: Remove Old Release Drafts
         env:
-          GITHUB_TOKEN: ${{secrets.BOT_GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: |
           curl -H "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/repos/$GITHUB_REPOSITORY/releases \
             | tr '\r\n' ' ' \
-            | jq '.[] | select(.draft == true) | .id' \
+            | jq '.[] | select(.draft == true and .name == "${{github.ref_name}}-v${{steps.changelog.outputs.version}}") | .id' \
             | xargs -I '{}' \
           curl -X DELETE -H "Authorization: Bearer $GITHUB_TOKEN" https://api.github.com/repos/$GITHUB_REPOSITORY/releases/{}
 
