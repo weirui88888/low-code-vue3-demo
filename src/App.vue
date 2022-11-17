@@ -5,7 +5,7 @@
 </template>
 
 <script setup lang="ts">
-import appConfig from '@/app.config.json'
+import appConfig from '@/appConfig/app.config.json'
 </script>
 
 <style scoped lang="scss">

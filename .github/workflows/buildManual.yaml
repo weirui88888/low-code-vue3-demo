@@ -5,7 +5,7 @@ on:
     branches:
       - event-*
     paths:
-      - '!src/app.config.json'
+      - '!src/appConfig/**'
 
 jobs:
   buildStagingManualEvent:
