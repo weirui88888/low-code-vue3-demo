@@ -1,4 +1,4 @@
-name: Rollback
+name: Rollback Manual
 
 on:
   repository_dispatch:
@@ -6,8 +6,8 @@ on:
 
 jobs:
   release:
-    name: Release
-    runs-on: [self-hosted, Linux, office]
+    name: Rollback Manual
+    runs-on: ubuntu-latest
     steps:
       - name: Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.11.0

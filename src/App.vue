@@ -1,6 +1,6 @@
 <template>
   <div>配置的标题:{{ parsedAppConfig.eventTitle }}</div>
-  <div>这个是主分支</div>
+  <div>这个是主分支main-v1.1.3</div>
   <div class="membership"></div>
   <div class="back"></div>
 </template>
