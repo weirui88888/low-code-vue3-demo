@@ -1,3 +1,9 @@
+## [0.1.2]
+
+### Feature
+
+- :feat: 支持手动回滚 rollbackManual
+
 ## [0.1.1]
 
 ### Feature
