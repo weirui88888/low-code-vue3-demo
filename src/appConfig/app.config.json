@@ -1,5 +1,6 @@
 {
-  "title": "静夜思11",
-  "backgroundImage": "url(https://m0-file2.bybutter.com/uploaded/toaster/0838eaedef9440f883abeaa4580ff199.png)",
-  "color": "#000000"
+  "eventTitle": "静夜思11",
+  "eventKey": "event-key",
+  "headerImageUrl": "https://m0-file2.bybutter.com/uploaded/toaster/0838eaedef9440f883abeaa4580ff199.png",
+  "backImageUrl": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/6a3c77a7-635c-441f-9e66-31425be962aa.png"
 }
