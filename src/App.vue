@@ -1,6 +1,6 @@
 <template>
   <div>配置的标题:{{ parsedAppConfig.eventTitle }}</div>
-  <div>当前分支:{{ parsedAppConfig.eventKey }}</div>
+  <div>当前分支名:{{ parsedAppConfig.eventKey }}</div>
   <div class="membership"></div>
   <div class="back"></div>
 </template>
