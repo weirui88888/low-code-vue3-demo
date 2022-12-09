@@ -1,6 +1,6 @@
 {
   "eventKey": "event-2022-01-02",
-  "eventTitle": "01活动",
+  "eventTitle": "01活动-edit",
   "switchCountdown": false,
   "headerImageUrl": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/8a13667f-f8d1-4319-8987-63edadbb3e2a.png",
   "backImageUrl": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/6a3c77a7-635c-441f-9e66-31425be962aa.png",
@@ -77,5 +77,6 @@
         }
       ]
     }
-  ]
+  ],
+  "needRebuilding": true
 }
