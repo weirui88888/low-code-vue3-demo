@@ -1,7 +1,10 @@
 {
-  "eventTitle": "静夜思11",
-  "eventKey": "event-key",
-  "headerImageUrl": "https://m0-file2.bybutter.com/uploaded/toaster/0838eaedef9440f883abeaa4580ff199.png",
+  "eventKey": "event-2022-12-01",
+  "eventTitle": "01活动",
+  "switchCountdown": false,
+  "headerImageUrl": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/8a13667f-f8d1-4319-8987-63edadbb3e2a.png",
   "backImageUrl": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/6a3c77a7-635c-441f-9e66-31425be962aa.png",
-  "productGroups": []
+  "activityStartTime": "2022-12-01 00:00:00",
+  "activityEndTime": "2022-12-30 00:00:00",
+  "createTime": 1670556531920
 }
