@@ -2,7 +2,7 @@
   "eventKey": "event-2022-06-06",
   "eventTitle": "06活动",
   "switchCountdown": false,
-  "headerImageUrl": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/8a13667f-f8d1-4319-8987-63edadbb3e2a.png",
+  "headerImageUrl": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/86958802-307c-4b96-84a3-e84301473533.png",
   "backImageUrl": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/6a3c77a7-635c-441f-9e66-31425be962aa.png",
   "activityStartTime": "2022-12-10 00:00:00",
   "activityEndTime": "2022-12-23 00:00:00",
@@ -81,5 +81,6 @@
         }
       ]
     }
-  ]
+  ],
+  "needRebuilding": true
 }
