@@ -80,7 +80,78 @@
           "productTextColor": ""
         }
       ]
+    },
+    {
+      "id": "26030347-b924-4f8b-959b-e92ad4beb6a9",
+      "userBeta": false,
+      "platforms": [
+        "ios",
+        "android"
+      ],
+      "memberships": [
+        "nonmember",
+        "member"
+      ],
+      "subscriptions": [
+        "subscribed",
+        "unsubscribed"
+      ],
+      "crc32Remainder2Groups": [],
+      "crc32Remainder4Groups": [],
+      "productList": [
+        {
+          "productId": "3146",
+          "payImageUri": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/876c63bd-d9ad-46f1-bc09-2eb5fb4a34d4.png",
+          "cornerImageUri": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/a41d7b1a-95ad-4bc4-b0cd-0e99c2201c8f.png",
+          "borderColor": "#FE4C70",
+          "bgColor": "linear-gradient(90deg, #FE3377 0%, #FEAC75 100%)",
+          "priceColor": "#FFFABE",
+          "originalPriceBgColor": "rgba(255,250,190,0.36)",
+          "originalPriceLineColor": "rgba(255,250,190,0.54)",
+          "type": "first",
+          "productType": "fat"
+        },
+        {
+          "productId": "3147",
+          "payImageUri": "https://butter-file.oss-cn-beijing.aliyuncs.com/uploaded/toaster/b38d114c-b035-495f-8d50-b6c9ed9e4f93.png",
+          "borderColor": "#FEBC7A",
+          "bgColor": "linear-gradient(90deg, #FFDA91 0%, #FDF5CA 100%)",
+          "priceColor": "#F57200",
+          "originalPriceBgColor": "rgba(245,114,0,0.2)",
+          "originalPriceLineColor": "rgba(245,114,0,0.36)",
+          "type": "second",
+          "productType": "fat"
+        },
+        {
+          "productId": "4",
+          "productBgColor": "",
+          "productBorderColor": "",
+          "productPriceColor": "",
+          "productTextColor": ""
+        },
+        {
+          "productId": "1",
+          "productBgColor": "",
+          "productBorderColor": "",
+          "productPriceColor": "",
+          "productTextColor": ""
+        },
+        {
+          "productId": "3180",
+          "productBgColor": "",
+          "productBorderColor": "",
+          "productPriceColor": "",
+          "productTextColor": ""
+        },
+        {
+          "productId": "3",
+          "productBgColor": "",
+          "productBorderColor": "",
+          "productPriceColor": "",
+          "productTextColor": ""
+        }
+      ]
     }
   ],
-  "needRebuilding": false
+  "needRebuilding": true
 }
