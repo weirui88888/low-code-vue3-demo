@@ -6,5 +6,89 @@
   "backImageUrl": "https://m0-file.bybutter.com/uploaded/toaster/8f3467db-a4d1-48d3-98d4-08da38785a30.png",
   "activityStartTime": "2023-02-03 00:00:00",
   "activityEndTime": "2023-02-10 00:00:00",
-  "createTime": 1675409715309
+  "createTime": 1675409715309,
+  "productGroups": [
+    {
+      "id": "ffa57147-36e3-4adc-b53d-b92206092d67",
+      "groupName": "ios",
+      "platforms": [
+        "ios"
+      ],
+      "memberships": [
+        "nonmember",
+        "member"
+      ],
+      "subscriptions": [
+        "subscribed",
+        "unsubscribed"
+      ],
+      "crc32Remainder2Groups": [
+        "0",
+        "1"
+      ],
+      "crc32Remainder4Groups": [
+        "0",
+        "1",
+        "2",
+        "3"
+      ],
+      "productList": [
+        {
+          "productId": "3146",
+          "borderColor": "#F5314D",
+          "bgColor": "linear-gradient(90deg, #FE1E44 0%, #FEAC75 100%)",
+          "priceColor": "#FFFABE",
+          "originalPriceBgColor": "rgba(255,250,190,0.36)",
+          "originalPriceLineColor": "rgba(255,250,190,0.54)",
+          "type": "first",
+          "payImageUri": "https://m0-file.bybutter.com/uploaded/toaster/15eb7a9c-b69c-4859-8c62-0a5dd21b4ad1.png",
+          "productType": "fat",
+          "cornerImageUri": "https://m0-file.bybutter.com/uploaded/toaster/4cb6a240-4a66-485b-9f31-769459dc44c6.png",
+          "cornerImageSize": {
+            "width": 297,
+            "height": 72
+          }
+        },
+        {
+          "productId": "4",
+          "borderColor": "#76DB76",
+          "bgColor": "linear-gradient(90deg, #C8F1A0 0%, #FDF5CA 100%)",
+          "priceColor": "#31AD5E",
+          "originalPriceBgColor": "rgba(51,184,95,0.2)",
+          "originalPriceLineColor": "rgba(51,184,95,0.24)",
+          "type": "second",
+          "payImageUri": "https://m0-file.bybutter.com/uploaded/toaster/e813bcf4-8b00-47de-aa1c-8a42889cc396.png",
+          "productType": "fat"
+        },
+        {
+          "productId": "3147",
+          "productBgColor": "",
+          "productBorderColor": "",
+          "productPriceColor": "",
+          "productTextColor": ""
+        },
+        {
+          "productId": "1",
+          "productBgColor": "",
+          "productBorderColor": "",
+          "productPriceColor": "",
+          "productTextColor": ""
+        },
+        {
+          "productId": "3180",
+          "productBgColor": "",
+          "productBorderColor": "",
+          "productPriceColor": "",
+          "productTextColor": ""
+        },
+        {
+          "productId": "3",
+          "productBgColor": "",
+          "productBorderColor": "",
+          "productPriceColor": "",
+          "productTextColor": ""
+        }
+      ]
+    }
+  ]
 }
