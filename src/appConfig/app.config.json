@@ -1,6 +1,6 @@
 {
   "eventKey": "event-test-2023-02-03",
-  "eventTitle": "test-action-02-03-17:50",
+  "eventTitle": "test-action-02-03-18:00",
   "switchCountdown": false,
   "headerImageUrl": "https://m0-file.bybutter.com/uploaded/toaster/e678f1d5-3876-42e8-9803-9507f9b208b1.png",
   "backImageUrl": "https://m0-file.bybutter.com/uploaded/toaster/8f3467db-a4d1-48d3-98d4-08da38785a30.png",
@@ -91,5 +91,5 @@
       ]
     }
   ],
-  "needRebuilding": false
+  "needRebuilding": true
 }
