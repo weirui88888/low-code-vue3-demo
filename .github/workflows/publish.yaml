@@ -72,8 +72,8 @@ jobs:
         uses: manyuanrong/setup-ossutil@v2.0
         with:
           endpoint: oss-cn-hangzhou.aliyuncs.com
-          access-key-id: LTAI5tDHY7ZE8GqU8Ysteq48
-          access-key-secret: DBhHbx7XRV3IJSnjQeHKJlmQeCys6t
+          access-key-id: 'your accessKeyId'
+          access-key-secret: 'your accessKeySecret'
 
       - name: Upload Files to OSS
         run: |
@@ -90,8 +90,8 @@ jobs:
         uses: iou90/aliCdn@v1.0.0
         id: getCdnDomainConfigs
         with:
-          accessKeyId: LTAI5tDHY7ZE8GqU8Ysteq48
-          appSecret: DBhHbx7XRV3IJSnjQeHKJlmQeCys6t
+          accessKeyId: 'your accessKeyId'
+          appSecret: 'your accessKeySecret'
           action: DescribeCdnDomainConfigs
           parameters: '{ "DomainName": "vue3.newarray.vip", "FunctionNames": "back_to_origin_url_rewrite" }'
 
