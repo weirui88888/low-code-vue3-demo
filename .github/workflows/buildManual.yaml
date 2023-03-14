@@ -58,8 +58,8 @@ jobs:
         uses: manyuanrong/setup-ossutil@v3.0
         with:
           endpoint: oss-cn-hangzhou.aliyuncs.com
-          access-key-id: LTAI5tDHY7ZE8GqU8Ysteq48
-          access-key-secret: DBhHbx7XRV3IJSnjQeHKJlmQeCys6t
+          access-key-id: 
+          access-key-secret: 
 
       - name: Upload Files to OSS
         run: |
